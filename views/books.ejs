@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Book Assistant</title>
+</head>
+<body>
+    <a href="/">Home</a><br>
+    <a href="/book/add">Add Book</a>
+    <% if (notif) { %>
+        <h1><%=notif%></h1>
+        <% } %>
+    <table>
+        <tr>
+        <th>Book Name</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Category</th>
+        <th>Rack Code</th>
+        </tr>
+        <% books.forEach((book) => { %>
+        <tr>
+        <td><%=book.name%></td>
+        <td><%=book.price%></td>
+        <td><%=book.stock%></td>
+        <td><%=book.category%></td>
+        <td><%=book.rack_id%></td>
+        <td>
+            <a href="/book/edit/<%=book.id%>">Edit</a> |
+            <a href="/book/delete/<%=book.id%>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a> |
+        </td>
+        </tr>
+        <% }) %>
+    </table>
+</body>
+</html>

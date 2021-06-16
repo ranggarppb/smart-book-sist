@@ -24,7 +24,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: "Racks",
-          key: "rack_id",
+          key: "id",
         },
       },
       createdAt: {

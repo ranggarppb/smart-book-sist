@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Book Assistant</title>
+</head>
+<body>
+    <form action="/book/add" method="POST">
+        <label for="name">Name</label><br>
+        <input type="text" id="name" name="name" placeholder="e.g: Why Nations Fail"><br>
+        <label for="price">Price</label><br>
+        <input type="text" id="price" name="price" placeholder="e.g: 100000"><br>
+        <label for="stock">Stock</label><br>
+        <input type="text" id="stock" name="stock" placeholder="e.g: 100"><br>
+        <label for="category">Category</label><br>
+        <select id="category" name="category">
+            <option value="" selected>--- Select One ---</option>
+            <option value="fiction">Fiction</option>
+            <option value="self-improvement">Self Improvement</option>
+            <option value="drama">Drama</option>
+            <option value="religius">Religi</option>
+        </select><br>
+        <label for="rack_id">Rack Code</label><br>
+        <select id="rack_id" name="rack_id">
+            <option value="" selected>--- Select Rack Code ---</option>
+            <% for (const rack of racks) { %>
+                <option value="<%=rack.id%>"><%=rack.id%></option>
+            <% } %>
+        </select><br>
+        <input type="submit" value="Submit">
+      </form> 
+</body>
+</html>

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "number": 1,
+    "row": 1,
+    "floor_building": 1
+  },
+  {
+    "id": 2,
+    "number": 2,
+    "row": 4,
+    "floor_building": 1
+  },
+  {
+    "id": 3,
+    "number": 3,
+    "row": 4,
+    "floor_building": 2
+  },
+  {
+    "id": 4,
+    "number": 4,
+    "row": 3,
+    "floor_building": 2
+  },
+  {
+    "id": 5,
+    "number": 5,
+    "row": 4,
+    "floor_building": 2
+  }
+]
