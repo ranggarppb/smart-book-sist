@@ -8,7 +8,7 @@
 </head>
 <body>
     <a href="/">Home</a><br>
-    <a href="/book/add">Add Book</a>
+    <a href="/book/list/add">Add Book</a>
     <% if (notif) { %>
         <h1><%=notif%></h1>
         <% } %>
@@ -28,8 +28,8 @@
         <td><%=book.category%></td>
         <td><%=book.rack_id%></td>
         <td>
-            <a href="/book/edit/<%=book.id%>">Edit</a> |
-            <a href="/book/delete/<%=book.id%>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a> |
+            <a href="/book/list/edit/<%=book.id%>">Edit</a> |
+            <a href="/book/list/delete/<%=book.id%>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a> |
         </td>
         </tr>
         <% }) %>

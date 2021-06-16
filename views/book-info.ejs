@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Book Assistant</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>Nama Buku</th>
+        <th>Harga</th>
+        <th>Kategori</th>
+        <th>Lokasi</th>
+      </tr>
+      <tr>
+        <td><%=book.dataValues.name%></td>
+        <td><%=book.dataValues.price%></td>
+        <td><%=book.dataValues.category%></td>
+        <td>
+          Lantai <%=book.dataValues.Rack.dataValues.floor_building%>, Rak nomor
+          <%=book.dataValues.Rack.dataValues.number%>, Baris ke
+          <%=book.dataValues.Rack.dataValues.row%>
+        </td>
+      </tr>
+    </table>
+    <% if (averageRating) { %>
+        <h3>Rating: <%=averageRating%></h3>
+    <% } else { %>
+        <h3>Belum ada rating, tambahkan rating sekarang</h3>
+    <% } %>
+    <h3>Review</h3>
+    <% if (reviews) { %>
+        <% for (const review of reviews) { %>
+            <p><%=review%></p>
+        <% } %>
+    <% } else { %>
+        <h3>Belum ada review, tambahkan review sekarang</h3>
+    <% } %>
+    <a href="/book/info/create-review/<%=book.dataValues.id%>"
+      >Beri Rating dan Review</a
+    >
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"
+    ></script>
+    <title>Smart Book Assistant</title>
+  </head>
+  <body>
+    <h2>Scan QR Code di buku kamu</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <video id="preview" width="50%" height="50%"></video>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let scanner = new Instascan.Scanner({
+        video: document.getElementById("preview"),
+      });
+      Instascan.Camera.getCameras()
+        .then(function (cameras) {
+          if (cameras.length > 0) {
+            scanner.start(cameras[0]);
+          } else {
+            alert("No cameras found");
+          }
+        })
+        .catch(function (e) {
+          console.error(e);
+        });
+
+      scanner.addListener("scan", function (c) {
+        window.location.href = `/book/info/${c}`;
+      });
+    </script>
+  </body>
+</html>

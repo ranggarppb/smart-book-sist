@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Book Assistant</title>
+  </head>
+  <body>
+    <form action="/book/info/create-review/<%=id%>" method="POST">
+      <label for="review">Review</label><br>
+      <textarea id="review" name="review" rows="4" cols="50"></textarea><br>
+      <label for="rating">Rating</label><br />
+      <select id="rating" name="rating">
+        <option value="" selected>--- Select One ---</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select><br />
+    <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

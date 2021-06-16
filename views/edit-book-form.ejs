@@ -7,7 +7,7 @@
     <title>Smart Book Assistant</title>
   </head>
   <body>
-    <form action="/book/edit/<%=book.id%>" method="POST">
+    <form action="/book/list/edit/<%=book.id%>" method="POST">
       <label for="name">Name</label><br />
       <input type="text" id="name" name="name" value="<%=book.name%>" /><br />
       <label for="price">Price</label><br />
@@ -44,7 +44,7 @@
         %>
       </select><br>
       <input type="submit" value="Update" />
-      <a href="/book">Cancel</a>
+      <a href="/book/list">Cancel</a>
     </form>
   </body>
 </html>
