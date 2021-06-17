@@ -7,6 +7,7 @@
     <title>Smart Book Assistant</title>
   </head>
   <body>
+    <a href="/">Home</a>
     <table>
       <tr>
         <th>Nama Buku</th>
@@ -41,5 +42,9 @@
     <a href="/book/info/create-review/<%=book.dataValues.id%>"
       >Beri Rating dan Review</a
     >
+    <h3>Orang lain juga menyukai: </h3><br>
+    <% for (const book of likedBooks) { console.log(book) %>
+        <a href="/book/info/<%=book.dataValues.id%>"><%=book.dataValues.name%></a>
+    <% } %>
   </body>
 </html>

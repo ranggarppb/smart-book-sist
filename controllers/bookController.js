@@ -1,4 +1,6 @@
-const { Book, Rack, Review } = require("../models");
+const { Book, Rack, Review, sequelize } = require("../models");
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 class bookController {
   static getBooks(req, res) {
@@ -84,6 +86,7 @@ class bookController {
   }
   static getBookInfo(req, res) {
     let { id } = req.params;
+    let reviews, ratings, averageRating, category;
     Book.findOne({
       include: [
         {
@@ -97,17 +100,55 @@ class bookController {
         id: +id,
       },
     }).then((result) => {
-      let reviews = result.dataValues.Reviews.map(
+      if (!result) res.render("error-page", { notif: "Buku tidak ditemukan" });
+      if (result.dataValues.Reviews.length > 0) {
+        reviews = result.dataValues.Reviews.map(
           (review) => review.dataValues.review
-        ),
+        );
         ratings = result.dataValues.Reviews.map((review) => {
           return review.dataValues.rating;
-        }),
+        });
         averageRating = ratings.reduce((a, b) => a + b) / ratings.length;
-      res.render("book-info", {
-        book: result,
-        reviews: reviews,
-        averageRating: averageRating.toFixed(2),
+        category = result.dataValues.category;
+      }
+      return Book.findAll({
+        include: [
+          {
+            model: Review,
+          },
+        ],
+        where: {
+          name: {
+            [Op.not]: result.dataValues.name,
+          },
+        },
+      }).then((allBooks) => {
+        allBooks = allBooks.map((book) => {
+          if (book.dataValues.Reviews.length > 0) {
+            book.dataValues.ratings = book.dataValues.Reviews.map(
+              (review) => review.dataValues.rating
+            );
+            book.dataValues.averageRating =
+              book.dataValues.ratings.reduce((a, b) => a + b) /
+              book.dataValues.ratings.length;
+            return book;
+          } else {
+            (book.dataValues.ratings = null),
+              (book.dataValues.averageRating = null);
+            return book;
+          }
+        });
+        let likedBooks = allBooks.filter(
+          (book) =>
+            book.dataValues.averageRating >= averageRating &&
+            book.dataValues.category === category
+        );
+        res.render("book-info", {
+          book: result,
+          reviews: reviews,
+          averageRating: averageRating ? averageRating.toFixed(2) : null,
+          likedBooks: likedBooks,
+        });
       });
     });
   }
