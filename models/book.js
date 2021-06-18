@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "book_id",
       });
     }
+    get stockInPiece() {
+      return `${this.stock} buah`;
+    }
   }
   Book.init(
     {
@@ -30,5 +33,8 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "Book",
     }
   );
+  Book.addHook("beforeCreate", (book) => {
+    if (!book.rack_id) book.rack_id = 1;
+  });
   return Book;
 };

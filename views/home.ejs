@@ -8,7 +8,10 @@
 </head>
 <body>
     <h1>Welcome to Bookstore!</h1>
-    <a href="/book/list">Book List</a>
-    <a href="/book/info">Book Info</a>
+    <% if (role === "admin") { %>
+        <a href="/book/list">Book List</a>
+    <% } else { %>
+        <a href="/book/info">Book Info</a>
+    <%  } %>
 </body>
 </html>

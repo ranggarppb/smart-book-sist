@@ -1,6 +1,7 @@
 const { Book, Rack, Review, sequelize } = require("../models");
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
+const toRupiah = require("../helpers/toRupiah");
 
 class bookController {
   static getBooks(req, res) {
@@ -8,6 +9,10 @@ class bookController {
     Book.findAll()
       .then((results) => {
         results = results.map((result) => result.dataValues);
+        results = results.map((result) => {
+          result.price = toRupiah(String(result.price), ".");
+          return result;
+        });
         res.render("books", { notif: notif, books: results });
       })
       .catch((err) => res.send(err));
@@ -70,15 +75,19 @@ class bookController {
   }
   static deleteBook(req, res) {
     let { id } = req.params;
-    Book.destroy({
-      where: {
-        id: +id,
-      },
-    })
-      .then(() =>
-        res.redirect(`/book/list?notif=Berhasil mengubah data buku ${id}`)
-      )
-      .catch((err) => res.render(err));
+    if (req.session.role === "superadmin") {
+      Book.destroy({
+        where: {
+          id: +id,
+        },
+      })
+        .then(() =>
+          res.redirect(`/book/list?notif=Berhasil mengubah data buku ${id}`)
+        )
+        .catch((err) => res.render(err));
+    } else {
+      res.redirect(`/book/list?notif=Tidak terautentikasi mendelete buku`);
+    }
   }
 
   static getBookScanner(req, res) {
@@ -110,6 +119,10 @@ class bookController {
         });
         averageRating = ratings.reduce((a, b) => a + b) / ratings.length;
         category = result.dataValues.category;
+        result.dataValues.price = toRupiah(
+          String(result.dataValues.price),
+          "."
+        );
       }
       return Book.findAll({
         include: [
