@@ -1,0 +1,128 @@
+[
+    {
+        "user_id": 1,
+        "book_id": 9,
+        "review": "ah mantap",
+        "rating": 5
+    },
+    {
+        "user_id": 1,
+        "book_id": 10,
+        "review": "gokil",
+        "rating": 4
+    },
+    {
+        "user_id": 1,
+        "book_id": 3,
+        "review": "b aja",
+        "rating": 3
+    },
+    {
+        "user_id": 1,
+        "book_id": 4,
+        "review": "kuy banget",
+        "rating": 4
+    },
+    {
+        "user_id": 1,
+        "book_id": 5,
+        "review": "sekut gan",
+        "rating": 4
+    },
+    {
+        "user_id": 2,
+        "book_id": 3,
+        "review": "jele",
+        "rating": 1
+    },
+    {
+        "user_id": 4,
+        "book_id": 1,
+        "review": "b aja",
+        "rating": 3
+    },
+    {
+        "user_id": 3,
+        "book_id": 10,
+        "review": "asiiik",
+        "rating": 2
+    },
+    {
+        "user_id": 2,
+        "book_id": 9,
+        "review": "uh ena",
+        "rating": 5
+    },
+    {
+        "user_id": 3,
+        "book_id": 9,
+        "review": "jangan lah kamu berbuat dosa, tapi boong",
+        "rating": 4
+    },
+    {
+        "user_id": 1,
+        "book_id": 7,
+        "review": "ntaps",
+        "rating": 5
+    },
+    {
+        "user_id": 5,
+        "book_id": 9,
+        "review": "shopee cod shopee cod bayar langsung di tempat",
+        "rating": 4
+    },
+    {
+        "user_id": 5,
+        "book_id": 2,
+        "review": "goks",
+        "rating": 4
+    },
+    {
+        "user_id": 5,
+        "book_id": 3,
+        "review": "ntuaps",
+        "rating": 5
+    },
+    {
+        "user_id": 4,
+        "book_id": 9,
+        "review": "gokillll",
+        "rating": 5
+    },
+    {
+        "user_id": 4,
+        "book_id": 10,
+        "review": "suamiku suamimu juga lah",
+        "rating": 3
+    },
+    {
+        "user_id": 5,
+        "book_id": 10,
+        "review": "enak sih, tapi rela bagi bagi?",
+        "rating": 3
+    },
+    {
+        "user_id": 5,
+        "book_id": 9,
+        "review": "muantapp coyy",
+        "rating": 5
+    },
+    {
+        "user_id": 5,
+        "book_id": 8,
+        "review": "mantep gans",
+        "rating": 3
+    },
+    {
+        "user_id": 4,
+        "book_id": 6,
+        "review": "kuliah? bsi aja",
+        "rating": 3
+    },
+    {
+        "user_id": 2,
+        "book_id": 6,
+        "review": "salam jempol ngga dijepit",
+        "rating": 3
+    }
+]

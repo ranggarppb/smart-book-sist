@@ -1,4 +1,4 @@
-const { Book, Rack, Review, sequelize } = require("../models");
+const { Book, Rack, Review, User } = require("../models");
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 const toRupiah = require("../helpers/toRupiah");
@@ -57,7 +57,6 @@ class bookController {
   static editBook(req, res) {
     let { id } = req.params;
     let { name, price, stock, category, rack_id } = req.body;
-    console.log(name, price, stock, category, rack_id);
     Book.update(
       {
         name: name,
@@ -103,6 +102,11 @@ class bookController {
         },
         {
           model: Review,
+          include: [
+            {
+              model: User,
+            },
+          ],
         },
       ],
       where: {
@@ -111,9 +115,12 @@ class bookController {
     }).then((result) => {
       if (!result) res.render("error-page", { notif: "Buku tidak ditemukan" });
       if (result.dataValues.Reviews.length > 0) {
-        reviews = result.dataValues.Reviews.map(
-          (review) => review.dataValues.review
-        );
+        reviews = result.dataValues.Reviews.map((review) => {
+          console.log(review.dataValues);
+          let user = review.dataValues.User.dataValues.email.split("@")[0];
+          let reviewGiven = review.dataValues.review;
+          return { user: user, review: reviewGiven };
+        });
         ratings = result.dataValues.Reviews.map((review) => {
           return review.dataValues.rating;
         });

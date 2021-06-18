@@ -34,7 +34,7 @@
     <h3>Review</h3>
     <% if (reviews) { %>
         <% for (const review of reviews) { %>
-            <p><%=review%></p>
+            <p><%=review.user%> : <%=review.review%></p>
         <% } %>
     <% } else { %>
         <h3>Belum ada review, tambahkan review sekarang</h3>

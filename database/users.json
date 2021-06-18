@@ -1,0 +1,42 @@
+[
+    {
+        "email": "public1@gmail.com",
+        "password": "public1",
+        "role_id": 3
+    },
+    {
+        "email": "public2@gmail.com",
+        "password": "public2",
+        "role_id": 3
+    },
+    {
+        "email": "public3@gmail.com",
+        "password": "public3",
+        "role_id": 3
+    },
+    {
+        "email": "public4@gmail.com",
+        "password": "public4",
+        "role_id": 3
+    },
+    {
+        "email": "public5@gmail.com",
+        "password": "public5",
+        "role_id": 3
+    },
+    {
+        "email": "public6@gmail.com",
+        "password": "public6",
+        "role_id": 3
+    },
+    {
+        "email": "admin1@gmail.com",
+        "password": "admin1",
+        "role_id": 2
+    },
+    {
+        "email": "superadmin1@gmail.com",
+        "password": "superadmin1",
+        "role_id": 1
+    }
+]

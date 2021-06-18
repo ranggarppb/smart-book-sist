@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Why Nations Fail",
+        "price": 100000,
+        "stock": 6,
+        "category": "self-improvement",
+        "rack_id": 1
+    },
+    {
+        "name": "Dunia Sophie",
+        "price": 40000,
+        "stock": 8,
+        "category": "self-improvement",
+        "rack_id": 2
+    },
+    {
+        "name": "Ekonomi Che Guevara",
+        "price": 75000,
+        "stock": 6,
+        "category": "self-improvement",
+        "rack_id": 3
+    },
+    {
+        "name": "Lord of The Ring",
+        "price": 60000,
+        "stock": 6,
+        "category": "fiction",
+        "rack_id": 4
+    },
+    {
+        "name": "Harry Potter",
+        "price": 100000,
+        "stock": 6,
+        "category": "fiction",
+        "rack_id": 2
+    },
+    {
+        "name": "Twilight",
+        "price": 90000,
+        "stock": 10,
+        "category": "fiction",
+        "rack_id": 1
+    },
+    {
+        "name": "Keutamaan Berdzikir",
+        "price": 30000,
+        "stock": 20,
+        "category": "religius",
+        "rack_id": 4
+    },
+    {
+        "name": "Fadilah Sedekah",
+        "price": 70000,
+        "stock": 50,
+        "category": "religius",
+        "rack_id": 3
+    },
+    {
+        "name": "Cintaku Tercantol di Tinder",
+        "price": 200000,
+        "stock": 7,
+        "category": "drama",
+        "rack_id": 1
+    },
+    {
+        "name": "Suamiku Berselingkuh di Omegle",
+        "price": 400000,
+        "stock": 10,
+        "category": "drama",
+        "rack_id": 5
+    }
+]
