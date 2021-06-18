@@ -12,7 +12,6 @@ class registerController {
   }
   static register(req, res) {
     const { email, password, role_id } = req.body;
-    console.log(req.body)
     User.create({ email: email, password: password, role_id: +role_id })
       .then((result) => {
         let notif = `berhasil register user ${result.email}`;
