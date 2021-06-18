@@ -180,7 +180,7 @@ class bookController {
     let { review, rating } = req.body;
     let { id } = req.params;
     Review.create({
-      user_id: null,
+      user_id: 3,
       book_id: +id,
       review: review,
       rating: rating,

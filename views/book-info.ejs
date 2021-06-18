@@ -4,17 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Smart Book Assistant</title>
   </head>
   <body>
-    <a href="/logout">Logout</a>
-    <table>
-      <tr>
-        <th>Nama Buku</th>
-        <th>Harga</th>
-        <th>Kategori</th>
-        <th>Lokasi</th>
-      </tr>
+
+    <div class="container d-flex flex-column justify-content-center align-items-center" style="height: 100vh; width: 100vw;">
+
+      <div class="d-flex justify-content-start" style="width: 100%;">
+        <a class="m-1 btn btn-primary" href="/logout">Logout</a>
+        <a class="m-1 btn btn-warning" href="/">Home</a>
+    </div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Nama Buku</th>
+          <th scope="col">Harga</th>
+          <th scope="col">Kategori</th>
+          <th scope="col">Lokasi</th>
+        </tr>
+    </thead>
+    <tbody>
       <tr>
         <td><%=book.dataValues.name%></td>
         <td><%=book.dataValues.price%></td>
@@ -25,6 +36,7 @@
           <%=book.dataValues.Rack.dataValues.row%>
         </td>
       </tr>
+    </tbody>
     </table>
     <% if (averageRating) { %>
         <h3>Rating: <%=averageRating%></h3>
@@ -46,5 +58,10 @@
     <% for (const book of likedBooks) { console.log(book) %>
         <a href="/book/info/<%=book.dataValues.id%>"><%=book.dataValues.name%></a><br>
     <% } %>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
   </body>
 </html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js"
@@ -19,16 +20,34 @@
     <title>Smart Book Assistant</title>
   </head>
   <body>
-    <a href="/logout">Logout</a>
-    <h2>Scan QR Code di buku kamu</h2>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <video id="preview" width="50%" height="50%"></video>
-        </div>
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh; width: 100vw;">
+      <div class="justify-content-center align-items-center">
+        <table class="container d-flex justify-content-center align-items-center">
+          <tr class="container d-flex justify-content-center align-items-center">
+            <td>
+              <a href="/logout" class="btn btn-primary">Logout</a>
+            </td>
+            <tr>
+              <td class="container d-flex justify-content-center align-items-center">
+                <h2>Scan QR Code di buku kamu</h2>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <video id="preview"></video>
+                      </div>
+                    </div>
+                  </div>
+              </td>
+            </tr>
+          </tr>
+        </table>
       </div>
     </div>
-
     <script>
       let scanner = new Instascan.Scanner({
         video: document.getElementById("preview"),
@@ -49,5 +68,8 @@
         window.location.href = `/book/info/${c}`;
       });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
   </body>
 </html>
